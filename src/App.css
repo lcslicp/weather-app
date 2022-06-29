@@ -1,0 +1,246 @@
+/* background Theme */
+.day-theme,
+.midday-theme,
+.night-theme,
+.theme,
+.page-loader {
+  min-width: 100%;
+  overflow-y: hidden;
+  height: 102vh;
+  animation: fadein 0.5s ease;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.theme {
+  background-image: linear-gradient(#ffffff, #ebbdbc);
+}
+
+.day-theme {
+  background-image: linear-gradient(#fffad7, #ebbdbc);
+}
+
+.midday-theme {
+  background-image: linear-gradient(#e4d34d, #e07775);
+}
+
+.night-theme {
+  background-image: linear-gradient(#293348, #0e1421);
+  color: #ffffff;
+}
+
+/* Global */
+
+.page-padding {
+  padding: 0 5%;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+/* Page Loader */
+.page-loader {
+  position: absolute;
+  top: 0;
+  flex-direction: column;
+  background-image: linear-gradient(#3d5959, #222a33);
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.page-loader-icon {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.text-load {
+  position: absolute;
+  font-size: 1em;
+  font-weight: 300;
+  color: #ffffff;
+  margin-top: 5%;
+}
+
+/* Header Component */
+.header {
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.greeting,
+.date-time,
+.weather-description {
+  font-size: 1.5em;
+}
+
+.location {
+  font-size: 3em;
+}
+
+.date-time {
+  font-weight: 400;
+  text-align: right;
+  line-height: 1.5em;
+}
+
+/* Weather Component  */
+.c-weather {
+  align-items: flex-end;
+  padding-top: 10%;
+}
+.c-temperature {
+  font-size: 6em;
+  margin-bottom: -0.2em;
+}
+
+.temp-container {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -2em;
+}
+
+.c-temperature sup {
+  font-size: 35%;
+  padding-left: 0.2em;
+}
+
+.c-weather-icon {
+  max-width: 55px;
+  max-height: 55px;
+  vertical-align: bottom;
+  margin-left: -40px;
+}
+
+.weather-description {
+  vertical-align: text-top;
+  font-weight: lighter;
+  width: 200px;
+  text-align: center;
+}
+
+/* Weather Details */
+.divider {
+  border-left: 1px solid #808080;
+  padding-right: 5%;
+  height: 8em;
+}
+
+.details-title {
+  font-weight: bold;
+}
+
+.c-weather-details span {
+  font-weight: normal;
+  line-height: 1.5em;
+}
+
+.detail-value {
+  padding-left: 1em;
+}
+
+/* Lottie Animation */
+.animation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 912px) {
+  body {
+    overflow-y: hidden;
+  }
+
+  .page-padding {
+    padding: 2em 4em;
+  }
+  .greeting,
+  .date-time,
+  .weather-description {
+    font-size: 1.9em;
+  }
+  .c-weather {
+    padding-top: 0;
+    margin-top: -15%;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .c-temperature {
+    font-size: 10em;
+  }
+  .weather-description {
+    font-size: 1.9em;
+    margin-left: 10%;
+    width: 300px;
+  }
+  .c-weather-icon {
+    margin-left: -50px;
+    margin-bottom: 20px;
+  }
+  .divider {
+    visibility: collapse;
+  }
+  .details-title {
+    text-align: center;
+    margin-top: -15%;
+    font-size: 1.9em;
+  }
+  .animation {
+    margin-top: 45%;
+    margin-right: 20%;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  body {
+    height: 110vh;
+  }
+
+  .page-padding {
+    padding: 1em 3em;
+  }
+
+  .greeting,
+  .date-time,
+  .weather-description {
+    font-size: 1em;
+  }
+  .c-weather {
+    margin-top: -10%;
+  }
+  .c-temperature {
+    font-size: 7em;
+    margin-left: 5%;
+  }
+  .weather-description {
+    font-size: 1.2em;
+    margin-left: auto;
+    width: 300px;
+  }
+  .details-title {
+    margin-top: -25%;
+    font-size: 1.2em;
+  }
+
+  .animation {
+    margin-top: 65%;
+    width: 110%;
+    margin-right: -4%;
+  }
+}
