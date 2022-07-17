@@ -62,7 +62,7 @@ html {
   width: 100vw;
   height: 100vh;
   padding: 0;
-  margin: -8px;
+  margin: auto;
   display: grid;
   place-items: center;
   overflow: hidden;
