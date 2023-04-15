@@ -1,47 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
-const WeatherDetails = () => {
-  const [precipitation, setPrecipitation] = useState('');
-  const [humidity, setHumidity] = useState('');
-  const [wind, setWind] = useState('');
-
-  useEffect(async () => {
-    //fetch data
-    const url =
-      'https://api.weatherapi.com/v1/current.json?key=7431bdaf2eaf4555b6b44405220204&q=Cebu&aqi=no';
-    const { data } = await axios.get(url);
-
-    //display Precipitation in mm
-    setPrecipitation(data.current?.precip_mm);
-    //display Humidity level
-    setHumidity(data.current?.humidity);
-    //display Wind Velocity in kph
-    setWind(data.current?.wind_kph);
-  });
+const WeatherDetails = ({ weather }) => {
+  const details = [
+    {
+      id: 1,
+      title: 'Precipitation',
+      value: weather.precipitation,
+      units: 'mm',
+    },
+    {
+      id: 2,
+      title: 'Humidity',
+      value: weather.humidity,
+      units: '%',
+    },
+    {
+      id: 3,
+      title: 'Cloud Cover',
+      value: weather.cloud,
+      units: '%',
+    },
+    {
+      id: 4,
+      title: 'Wind',
+      value: weather.wind,
+      units: 'mph',
+    },
+    {
+      id: 5,
+      title: 'UV Index',
+      value: weather.uv,
+      units: '',
+    },
+    {
+      id: 6,
+      title: 'Gust',
+      value: weather.gust,
+      units: 'mph',
+    },
+  ];
   return (
-     //[c] in className stands for current
-    <div className="details-title z-index-2"> Weather Details
-    <div className="c-weather-details flex">
-        
-        <div className="detail-name">
-          <br />
-          <span>Precipitation</span>
-          <br />
-          <span>Humidity</span>
-          <br />
-          <span>Wind</span>
-        </div>
-        <div className="detail-value">
-          <br />
-          <span>{precipitation} mm</span>
-          <br />
-          <span>{humidity} %</span>
-          <br />
-          <span>{wind} kph</span>
-        </div>
-    </div>
-    </div>
+    <section className='details-container '>
+      <div className='flex-row details'>
+        {details.map((detail) => (
+          <div key={detail.id} className='flex-col detail-border'>
+            <p className='label'>{detail.title}</p>
+            <p className='label'>
+              <span className='detail'>{detail.value} </span> {detail.units}{' '}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
