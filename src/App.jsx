@@ -7,7 +7,13 @@ import Searchbar from './components/Searchbar';
 import WeatherDetails from './components/WeatherDetails';
 
 const App = () => {
-  const apiKey = import.meta.env.VITE_API_KEY;
+  let apiKey;
+  if (process.env.NETLIFY_API_KEY) {
+    apiKey = process.env.NETLIFY_API_KEY;
+  }
+  else {
+    apiKey = import.meta.env.VITE_API_KEY;
+  }
   const [theme, setTheme] = useState('theme');
   const [query, setQuery] = useState('Manila');
   const [weather, setWeather] = useState({
