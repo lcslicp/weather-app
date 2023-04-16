@@ -38,7 +38,7 @@ const WeatherDetails = ({ weather }) => {
     },
   ];
   return (
-    <section className='details-container '>
+    <section className='details-container flex-row page-padding'>
       <div className='flex-row details'>
         {details.map((detail) => (
           <div key={detail.id} className='flex-col detail-border'>

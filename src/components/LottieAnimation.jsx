@@ -13,7 +13,7 @@ const LottieAnimation = () => {
     });
   }, []);
 
-  return <div className="animation" id="lottie"></div>;
+  return <div className='animation flex-col' id='lottie'></div>;
 };
 
 export default LottieAnimation;
