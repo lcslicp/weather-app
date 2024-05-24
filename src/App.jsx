@@ -5,13 +5,14 @@ import axios from './api/axios';
 import Location from './components/Location';
 import Searchbar from './components/Searchbar';
 import WeatherDetails from './components/WeatherDetails';
+import fallbackIcon from './assets/icons/fallback.svg'
 
 const App = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [theme, setTheme] = useState('theme');
   const [query, setQuery] = useState('Manila');
   const [weather, setWeather] = useState({
-    location: '',
+    location: 'Search Weather Details',
     region: '',
     time: '',
     country: '',
@@ -32,22 +33,39 @@ const App = () => {
           q: query,
         },
       });
-      setWeather({
-        location: data.location?.name,
-        region: data.location?.region,
-        time: data.location?.localtime,
-        country: data.location?.country,
-        temperature: data.current?.temp_c,
-        condition: data.current?.condition.text,
-        conditionIcon: data.current?.condition.icon,
-        precipitation: data.current?.precip_mm,
-        humidity: data.current?.humidity,
-        cloud: data.current?.cloud,
-        wind: data.current?.wind_mph,
-        uv: data.current?.uv,
-        gust: data.current?.gust_mph,
-      });
+      setWeather ({
+          location: data.location?.name,
+          region: data.location?.region,
+          time: data.location?.localtime,
+          country: data.location?.country,
+          temperature: data.current?.temp_c,
+          condition: data.current?.condition.text,
+          conditionIcon: data.current?.condition.icon,
+          precipitation: data.current?.precip_mm,
+          humidity: data.current?.humidity,
+          cloud: data.current?.cloud,
+          wind: data.current?.wind_mph,
+          uv: data.current?.uv,
+          gust: data.current?.gust_mph,
+  
+        })
     } catch (error) {
+      setWeather({
+        location: "Uh oh...",
+        region: "We couldn't find what you're looking for",
+        time: "",
+        country: "please try again.",
+        temperature: "0",
+        condition: "",
+        conditionIcon: fallbackIcon,
+        precipitation: "0",
+        humidity: "0",
+        cloud: "0",
+        wind: "0",
+        uv: "0",
+        gust: "0",
+      });
+      console.log(weather);
       console.log(error);
     }
   };
