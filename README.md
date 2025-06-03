@@ -1,7 +1,7 @@
 # weather-app
 A simple weather app using a free weather api.
 
-Visit: https://weather.lcslicp.dev/
+Visit: https://weather.lcslicp.xyz/
 
 ## SECRET KEY
 - Get api key from [Weather API](https://www.weatherapi.com/).
